@@ -23,9 +23,13 @@ def convert_lat(lat):
     """
     >>> convert_lat('60.157365901399999')
     '6009.44'
+    >>> convert_lat('60.158270979300141')
+    '6009.49'
     """
     deg_1, deg_2 = lat.split('.')
-    return deg_1 + str(round(float("0." + deg_2) * 60, 2)).zfill(5)
+    digit, fraction = str(float("0." + deg_2) * 60).split('.')
+    num = f"{digit.zfill(2)}.{fraction[:2]}"
+    return deg_1 + num
 
 def convert_lon(lon):
     """
@@ -46,12 +50,13 @@ def convert_time(time_str):
 def create_nemea_line(t, lat, lon):
     """
     >>> len(create_nemea_line('154111', '6009.44', '02446.82'))
-    110
+    113
     """
     lines = [
-        f'$GPGGA,{t},{lat},N,{lon},E,2,6,001.0,034.3,M,-032.3,M,001,0400',
-        '$GPVTG,000.0,T,,,000.6,N,001.1,K',
-        'res=2\n'
+        'res=2\n',
+        f'$GPGGA,{t},{lat},N,{lon},E,2,6,001.0,034.3,M,-032.3,M,001,0400\n',
+        '$GPVTG,000.0,T,,,000.6,N,001.1,K\n',
+        '',
     ]
     return '\n'.join(lines)
 
@@ -71,6 +76,7 @@ def convert_file(file_name):
         print(f'Converted: {c_lat}, Longitude: {c_lon}, Time: {c_time}')
         result_str += create_nemea_line(c_time, c_lat, c_lon)
 
+    result_str += 'res=2\n'
     result_str += '$GPVTG,000.0,T,,,000.6,N,001.1,K\n'
     return result_str
 
@@ -78,13 +84,17 @@ def write_output(file_name, result_str):
     with open(file_name, 'w+') as file:
         file.write(result_str)
 
+def convert_linebreaks_to_crlf(data):
+    WINDOWS_LINE_ENDING = '\r\n'
+    UNIX_LINE_ENDING = '\n'
+    return data.replace(WINDOWS_LINE_ENDING, UNIX_LINE_ENDING)
 
 if __name__ == "__main__":
     try:
         print("Starting script")
         args = argparser.parse_args()
         result_str = convert_file(args.input)
-        write_output(args.output, result_str)
+        write_output(args.output, convert_linebreaks_to_crlf(result_str))
         print("Data has been converted.")
     except Exception:
         print(traceback.format_exc())
