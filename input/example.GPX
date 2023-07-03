@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GDAL 1.10.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<metadata>
+<bounds minlat="60.154555700700001" minlon="24.718444682700000" maxlat="60.214935746000002" maxlon="24.906221022800000" />
+</metadata>
+<trk>
+<name>Current Track: 16 MAY 2</name>
+<trkseg>
+<trkpt lat="60.157365901399999" lon="24.780212435900001">
+<time>2023-05-16T15:41:11Z</time>
+<name>T1</name>
+<type>TRACK</type>
+<extensions>
+<gpxx:lat>60.157365901399999</gpxx:lat>
+<gpxx:lon>24.780212435900001</gpxx:lon>
+<gpxx:y_proj>60.157365901399999</gpxx:y_proj>
+<gpxx:x_proj>24.780212435900001</gpxx:x_proj>
+<gpxx:new_trk>True</gpxx:new_trk>
+<gpxx:new_seg>True</gpxx:new_seg>
+</extensions>
+</trkpt>
+<trkpt lat="60.157397920299999" lon="24.780305307399999">
+<time>2023-05-16T15:41:26Z</time>
+<name>T1</name>
+<type>TRACK</type>
+<extensions>
+<gpxx:lat>60.157397920299999</gpxx:lat>
+<gpxx:lon>24.780305307399999</gpxx:lon>
+<gpxx:y_proj>60.157397920299999</gpxx:y_proj>
+<gpxx:x_proj>24.780305307400003</gpxx:x_proj>
+<gpxx:new_trk>False</gpxx:new_trk>
+<gpxx:new_seg>False</gpxx:new_seg>
+</extensions>
+</trkpt>
+</trkseg>
+</trk>
+</gpx>
