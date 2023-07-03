@@ -53,9 +53,10 @@ def create_nemea_line(t, lat, lon):
     113
     """
     lines = [
-        'res=2\n',
-        f'$GPGGA,{t},{lat},N,{lon},E,2,6,001.0,034.3,M,-032.3,M,001,0400\n',
-        '$GPVTG,000.0,T,,,000.6,N,001.1,K\n',
+        'res=2',
+        f'$GPGGA,{t},{lat},N,{lon},E,2,6,001.0,034.3,M,-032.3,M,001,0400',
+        '$GPVTG,000.0,T,,,000.6,N,001.1,K',
+        '',
         '',
     ]
     return '\n'.join(lines)
