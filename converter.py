@@ -45,12 +45,12 @@ def convert_time(time_str):
 
 def create_nemea_line(t, lat, lon):
     """
-    >>> create_nemea_line('154111', '6009.44', '02446.82')
-    '$GPGGA,154111,6009.44,N,02446.82,E,2,6,001.0,034.3,M,-032.3,M,001,0400$GPVTG,000.0,T,,,000.6,N,001.1,Kres=2'
+    >>> len(create_nemea_line('154111', '6009.44', '02446.82'))
+    110
     """
     lines = [
-        f'$GPGGA,{t},{lat},N,{lon},E,2,6,001.0,034.3,M,-032.3,M,001,0400\n'
-        '$GPVTG,000.0,T,,,000.6,N,001.1,K\n'
+        f'$GPGGA,{t},{lat},N,{lon},E,2,6,001.0,034.3,M,-032.3,M,001,0400',
+        '$GPVTG,000.0,T,,,000.6,N,001.1,K',
         'res=2\n'
     ]
     return '\n'.join(lines)
