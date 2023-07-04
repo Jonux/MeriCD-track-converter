@@ -19,3 +19,9 @@ python3 converter.py --input input/example.GPX --output output/retki.GPS
 ```
 python3 -m doctest converter.py
 ```
+
+
+## Notes
+```
+https://www.geeksforgeeks.org/convert-python-script-to-exe-file/
+```
