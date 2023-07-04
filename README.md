@@ -6,6 +6,8 @@ Convert MeriCD track from GPX-format to older Nemea-format
 ```shell
 pipenv install
 pipenv shell
+
+convert the script to .exe:  auto-py-to-exe 
 ```
 
 ## Example
