@@ -1,7 +1,5 @@
 import xml.etree.ElementTree as ET
 from datetime import datetime
-import traceback
-import os
 
 def convert_lat(lat):
     """
@@ -76,19 +74,15 @@ def convert_linebreaks_to_crlf(data):
 if __name__ == "__main__":
     try:
         print("Starting script")
-        cwd = os.getcwd()
-        dir_list = os.listdir(cwd)
-        for fname in dir_list:
-            extension = os.path.splitext(fname)[1]
-            if extension.lower() != '.gpx':
-                continue
-            source_file = os.path.join(cwd, fname)
-            target_file = os.path.join(cwd, fname[:-4] + '.GPS')
-            print("**** Converting file: " + source_file + ' -> ' + target_file)
-            result_str = convert_file(source_file)
-            write_output(target_file, convert_linebreaks_to_crlf(result_str))
+        input_file = input('Source file: ')
+        output_file = input('Output file: ')
+        source_file = input_file
+        target_file = output_file
+        print("**** Converting file: " + source_file + ' -> ' + target_file)
+        result_str = convert_file(source_file)
+        write_output(target_file, convert_linebreaks_to_crlf(result_str))
 
         print("All files have been converted.")
-    except Exception:
-        print(traceback.format_exc())
+    except Exception as e:
+        print('ERROR ' + e)
 
